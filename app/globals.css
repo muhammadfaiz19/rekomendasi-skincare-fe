@@ -1,0 +1,122 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+
+  /* Custom Sidebar mapping */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-accent: var(--sidebar-accent);
+}
+
+:root {
+  /* Core Palette */
+  --background: #F9F6EE; /* Putih tulang (Bone White) */
+  --foreground: #2c253b;
+
+  --primary: #9B8EC7;
+  --primary-foreground: #ffffff;
+
+  --secondary: #BDA6CE;
+  --secondary-foreground: #ffffff;
+
+  --muted: #EBE7DF; /* Sedikit lebih gelap dari putih tulang */
+  --muted-foreground: #695e7c;
+
+  --accent: #B4D3D9;
+  --accent-foreground: #2c253b;
+
+  --border: #BDA6CE;
+  --ring: #9B8EC7;
+
+  /* Sidebar styling for Dashboard */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #2c253b;
+  --sidebar-primary: #9B8EC7;
+  --sidebar-accent: #eaddff;
+
+  --radius: 0.75rem;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #020617;
+    --foreground: #f8fafc;
+    --primary: #fb7185;
+    --border: #1e293b;
+    --muted: #0f172a;
+    --sidebar: #020617;
+    --sidebar-foreground: #f8fafc;
+  }
+} */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans, Inter, sans-serif);
+}
+
+/* Chatbot Animations */
+@keyframes chatbot-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes chatbot-exit {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+}
+
+@keyframes backdrop-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.chatbot-enter {
+  animation: chatbot-enter 0.3s ease-out forwards;
+}
+
+.chatbot-exit {
+  animation: chatbot-exit 0.25s ease-in forwards;
+}
+
+.chatbot-backdrop-enter {
+  animation: backdrop-enter 0.3s ease-out forwards;
+}
+
+.wrap-break-word {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
